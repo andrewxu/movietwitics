@@ -5,7 +5,18 @@ module Api
     end
 
     def movieList
-      return @bf.lists.in_theaters
+      movies = @bf.lists.in_theaters
+      list = []
+      movies.each do |m|
+        movie_data = {
+          'name' => m.name,
+          'year' => m.year,
+          'thumbnail' => m.posters.thumbnail
+        }
+        list <<  movie_data
+      end
+
+      return list
     end
   end
 end
