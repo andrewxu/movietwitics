@@ -7,11 +7,11 @@ Using https://github.com/intridea/tweetstream to get tweet info
 Contributors: Phillip Louie, Paul Beauchamp, Derek Szeto, Andrew Xu
 
 # Features
-*twitter feed analyzing
+* twitter feed analyzing
 
 # Tools Used
-*redis
-*twitter api
-*movie db api
-*rails
+* redis
+* twitter api
+* movie db api
+* rails
 
