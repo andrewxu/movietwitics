@@ -2,16 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-<<<<<<< HEAD
 gem 'redis'
-gem 'imdb'
-=======
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'badfruit'
->>>>>>> working
 
 # Gems used only for assets and not required
 # in production environments by default.
