@@ -35,8 +35,8 @@ class Classifier
       negative_count = @negative_corpus.token_count token
 
       token_probability = calculate_probability(
-        positive_count, @positive_corpus.entry_count,
-        negative_count, @negative_corpus.entry_count)
+        positive_count.to_f, @positive_corpus.entry_count.to_f,
+        negative_count.to_f, @negative_corpus.entry_count.to_f)
 
         record_probability token_probability
 
