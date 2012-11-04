@@ -38,3 +38,6 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+# Analyze tweet stream
+gem 'tweetstream'

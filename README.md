@@ -2,7 +2,6 @@ Movie Twitics
 ==============
 
 By analyzing twitter feeds, we give you an insight of what people are really reacting to movies
-Using https://github.com/intridea/tweetstream to get tweet info
 
 Contributors: Phillip Louie, Paul Beauchamp, Derek Szeto, Andrew Xu
 
@@ -11,7 +10,7 @@ Contributors: Phillip Louie, Paul Beauchamp, Derek Szeto, Andrew Xu
 
 # Tools Used
 * redis
-* twitter api
-* movie db api
+* twitter api (https://github.com/intridea/tweetstream)
+* rotten tomatoes api (https://github.com/brianmichel/badfruit)
 * rails
 
