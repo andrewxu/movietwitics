@@ -4,19 +4,19 @@ require "#{File.dirname(__FILE__)}/classifier"
 class Analyser
 
   def initialize
-    @positive = Corpus.new
-    @negative = Corpus.new
+    @positive = Corpus.new 'positive'
+    @negative = Corpus.new 'negative'
   end
 
-  def train_positive path
+  def train_positive
     puts 'Training analyser with +ve sentiment'
-    @positive.load_from_directory path
+    @positive.load_from_directory 'data/positive'
     puts '+ve sentiment training complete'
   end
 
-  def train_negative path
+  def train_negative
     puts 'Training analyser with -ve sentiment'
-    @negative.load_from_directory path
+    @negative.load_from_directory 'data/negative'
     puts '-ve sentiment training complete'
   end
 

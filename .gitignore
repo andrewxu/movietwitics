@@ -1,12 +1,13 @@
 # Ignore bundler config
 /.bundle
 
-# Ignore sqlite files
+# Ignore sqlite and other db files
 /db/*.sqlite3
+*.rdb
 
 # Ignore all logs
 /log/*.log
 /tmp
 
 *.sublime-project*
-GemFile.lock
+Gemfile.lock
