@@ -40,3 +40,12 @@ end
 
 # Analyze tweet stream
 gem 'tweetstream'
+
+# Needed for api request
+gem 'curl'
+
+# Used for parsing json
+gem 'json'
+
+# Tweet streaming
+gem 'twitter-stream'
