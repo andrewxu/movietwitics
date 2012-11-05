@@ -1,21 +1,20 @@
-
 require 'twitter/json_stream'
-
-
 module Api
-  class TweetHelper
-    def start_twitter_stream_listener
+  class TweetStremHelper
+    def start_twitter_stream_listener(movie_title)
+      @movie_title = movie_title
       EventMachine::run {
         stream = Twitter::JSONStream.connect(
           :path    => '/1/statuses/filter.json',
           :auth    => 'themovietwitics:$pickles99',
           :method  => 'POST',
-          :content => 'track=basketball,football,baseball,footy,soccer'
+          :content => "track=#{@movie_title}"
         )
 
         stream.each_item do |item|
-          #$stdout.print "item: #{item}\n"
-          #$stdout.flush
+          require 'json'
+          tweet = JSON.load(item)
+          puts "Analyze and write to db: #{tweet["text"]}\n\n"
         end
 
         stream.on_error do |message|
@@ -43,3 +42,6 @@ module Api
     end
   end
 end
+
+twitter_stream_capture = Api::TweetStremHelper.new
+twitter_stream_capture.start_twitter_stream_listener("Skyfall")

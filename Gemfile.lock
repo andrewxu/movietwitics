@@ -145,13 +145,13 @@ PLATFORMS
 
 DEPENDENCIES
   badfruit
-  coffee-rails (~> 3.2.1)
   curl
   jquery-rails
   json
   rails (= 3.2.8)
   redis
   sass-rails (~> 3.2.3)
+  sqlite3
   tweetstream
   twitter-stream
   uglifier (>= 1.0.3)
