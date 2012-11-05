@@ -17,7 +17,7 @@ namespace :sentiment do
   task :analyse, :sentence do |t, args|
     analyser = Analyser.new
 
-    analyser.analyse(args.sentence).to_json
+    p analyser.analyse(args.sentence).to_json
   end
   
 end
