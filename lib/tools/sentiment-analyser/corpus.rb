@@ -2,22 +2,24 @@ require "#{File.dirname(__FILE__)}/document"
 
 class Corpus
 
-  def initialize
-    @tokens = {}
+  def initialize name
+    $redis = Redis.new
+    @name = name
   end
 
   def entry_count
-    @tokens.values.inject(0, :+)
+    $redis.get "learning:#{@name}:total-count"
   end
 
   def add document
     document.each_token do |token|
-      @tokens[token] = token_count(token) + 1
+      $redis.incr "learning:#{@name}:#{token}"
+      $redis.incr "learning:#{@name}:total-count"
     end
   end
 
   def load_from_directory directory
-    Dir.glob("#{directory}/*.txt") do |entry|
+    Dir.glob("#{File.dirname(__FILE__)}/#{directory}/*.txt") do |entry|
       IO.foreach(entry) do |line|
         add Document.new(line)
       end
@@ -25,6 +27,8 @@ class Corpus
   end
 
   def token_count token
-    @tokens[token] || 0
+    count = $redis.get "learning:#{@name}:#{token}"
+    return count unless count.nil?
+    0
   end
 end
