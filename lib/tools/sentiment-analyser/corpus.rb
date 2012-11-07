@@ -3,6 +3,7 @@ require "#{File.dirname(__FILE__)}/document"
 class Corpus
 
   def initialize name
+    require 'redis'
     $redis = Redis.new
     @name = name
   end
