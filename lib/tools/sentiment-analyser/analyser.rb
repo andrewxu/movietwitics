@@ -2,7 +2,6 @@ require "#{File.dirname(__FILE__)}/corpus"
 require "#{File.dirname(__FILE__)}/classifier"
 
 class Analyser
-
   def initialize
     @positive = Corpus.new 'positive'
     @negative = Corpus.new 'negative'
