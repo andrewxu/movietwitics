@@ -1,5 +1,10 @@
 require 'twitter/json_stream'
 module Api
+  # Start helper to create listener for twitter feed
+  # Example:
+  # twitter_stream_capture = Api::TweetStremHelper.new
+  # twitter_stream_capture.start_twitter_stream_listener("Skyfall")
+
   class TweetStremHelper
     def start_twitter_stream_listener(movie_title)
       @movie_title = movie_title
@@ -48,8 +53,3 @@ module Api
     end
   end
 end
-
-twitter_stream_capture = Api::TweetStremHelper.new
-twitter_stream_capture.start_twitter_stream_listener("Skyfall")
-
-#twitter_stream_capture.write_to_db
