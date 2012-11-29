@@ -2,10 +2,22 @@ require 'twitter/json_stream'
 module Api
   # Start helper to create listener for twitter feed
   # Example:
-  # twitter_stream_capture = Api::TweetStremHelper.new
-  # twitter_stream_capture.start_twitter_stream_listener("Skyfall")
+  #  twitter_stream_capture = Api::TweetStremHelper.new
+  #  twitter_stream_capture.start_twitter_stream_listener("Skyfall")
 
   class TweetStremHelper
+    def analyse_tweet(text)
+      require_relative '../tools/sentiment-analyser/analyser'
+      analyser = Analyser.new
+      #puts analyser.analyse(text)
+      #puts analyser.analyse("Skyfall was amazing").to_json
+      #is_positive = analyser.analyse(text).sentiment
+      is_positive = false
+      require_relative '../db/movie_tracker_redis'
+      movie_tracker = Db::MovieTrackerRedis.new
+      movie_tracker.write_to_db(@movie_title, is_positive)
+    end
+
     def start_twitter_stream_listener(movie_title)
       @movie_title = movie_title
       EventMachine::run {
@@ -20,11 +32,8 @@ module Api
         stream.each_item do |item|
           require 'json'
           tweet = JSON.load(item)
-          puts "Analyze and write to db: #{tweet["text"]}\n\n"
-          require_relative '../tools/sentiment-analyser/analyser'
-          analyser = Analyser.new
-          #puts analyser.analyse(tweet["text"]).to_json
-          puts analyser.analyse("Skyfall was amazing").to_json
+          puts "Analyse and write to db: #{tweet["text"]}\n\n"
+          analyse_tweet(tweet["text"])
           puts "\n\n\n"
         end
 
