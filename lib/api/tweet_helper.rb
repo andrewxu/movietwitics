@@ -1,6 +1,6 @@
 
 module Api
-  class TweetHelper
+  class TweetApiHelper
     def insert_tweets(movie_title)
       @movie_title = movie_title
       self.movie_tweets["results"].each do |tweet|
@@ -27,8 +27,3 @@ module Api
     end
   end
 end
-
-
-
-input_tweet = Api::TweetHelper.new
-input_tweet.insert_tweets("Argo")

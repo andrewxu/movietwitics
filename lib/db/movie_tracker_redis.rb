@@ -12,8 +12,8 @@ module Db
     end
     
     def movie_rating(movie_title)
-      positive_reviews = @redis.get("#{movie_title}_#{self::POSITIVE_RATING_CHAR}")
-      negative_reviews = @redis.get("#{movie_title}_#{self::NEGATIVE_RATING_CHAR}")
+      positive_reviews = @redis.get("#{movie_title}_#{POSITIVE_RATING_CHAR}")
+      negative_reviews = @redis.get("#{movie_title}_#{NEGATIVE_RATING_CHAR}")
       if positive_reviews.nil? && negative_reviews.nil?
         return "Not yet rated"
       else
