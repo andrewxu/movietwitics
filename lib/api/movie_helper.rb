@@ -11,7 +11,9 @@ module Api
         movie_data = {
           'name' => m.name,
           'year' => m.year,
-          'thumbnail' => m.posters.thumbnail
+          'thumbnail' => m.posters.thumbnail,
+          'critic_score' => m.scores.critics_score,
+          'user_score' => m.scores.audience_score
         }
         list <<  movie_data
       end
