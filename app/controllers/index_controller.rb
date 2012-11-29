@@ -11,5 +11,6 @@ class IndexController < ApplicationController
   end
 
   def movie
+    @movie = @movie_helper.get_movie_by_id params[:id]
   end
 end

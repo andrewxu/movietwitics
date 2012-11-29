@@ -9,6 +9,7 @@ module Api
       list = []
       movies.each do |m|
         movie_data = {
+          'id' => m.id,
           'name' => m.name,
           'year' => m.year,
           'thumbnail' => m.posters.thumbnail,
@@ -19,6 +20,10 @@ module Api
       end
 
       return list
+    end
+
+    def get_movie_by_id identifier
+      return @bf.movies.search_by_id identifier
     end
   end
 end
