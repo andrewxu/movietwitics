@@ -1,3 +1,29 @@
-<h1>Index#index</h1>
-<p>Find me in app/views/index/index.html.erb</p>
-<%= @box_office_movies %>
+<h1>Movie Twittics</h1>
+<table>
+  <tr>
+    <th></th>
+    <th>Movie Name</th>
+    <th>Critic Score</th>
+    <th>User Score</th>
+    <th>What is your feeling baby?</th>
+  </tr>
+<% @box_office_movies.each do |movie| %>
+  <tr>
+    <td>
+      <img src="<%= movie['thumbnail'] %>">
+    </td>
+    <td>
+      <%= movie['name'] + ' (' + movie['year'].to_s + ')' %>
+    </td>
+    <td>
+      <%= movie['critic_score'] %>
+    </td>
+    <td>
+      <%= movie['user_score'] %>
+    </td>
+    <td>
+      Sentinment here.
+    </td>
+  </tr>
+<% end %>
+</table>
