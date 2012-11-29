@@ -1,5 +1,6 @@
 RailsApp::Application.routes.draw do
   root :to => 'index#index'
+  match 'movies/:id' => 'index#movie'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

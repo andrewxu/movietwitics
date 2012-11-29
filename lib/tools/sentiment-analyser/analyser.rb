@@ -19,6 +19,15 @@ class Analyser
     puts '-ve sentiment training complete'
   end
 
+  def write_to_db sentence, sentiment
+    p sentiment
+    if sentiment == Sentiment::NEGATIVE
+      @negative.add Document.new(sentence)
+    else
+      @positive.add Document.new(sentence)
+    end
+  end
+
   def analyse sentence
     Classifier.new(@positive, @negative).classify(sentence)
   end

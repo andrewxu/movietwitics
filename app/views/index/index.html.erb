@@ -1,4 +1,4 @@
-<h1>Movie Twittics</h1>
+<h1>Movie Twitics</h1>
 <table>
   <tr>
     <th></th>
@@ -13,7 +13,7 @@
       <img src="<%= movie['thumbnail'] %>">
     </td>
     <td>
-      <%= movie['name'] + ' (' + movie['year'].to_s + ')' %>
+      <a href="movies/<%= movie['id'] %>"><%= movie['name'] + ' (' + movie['year'].to_s + ')' %></a>
     </td>
     <td>
       <%= movie['critic_score'] %>
