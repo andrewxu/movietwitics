@@ -9,13 +9,12 @@ module Api
     def analyse_tweet(text)
       require_relative '../tools/sentiment-analyser/analyser'
       analyser = Analyser.new
-      #puts analyser.analyse(text)
-      #puts analyser.analyse("Skyfall was amazing").to_json
-      #is_positive = analyser.analyse(text).sentiment
-      is_positive = false
+      sentiment = analyser.analyse(text).sentiment
+      analyser.write_to_db text, sentiment
+
       require_relative '../db/movie_tracker_redis'
       movie_tracker = Db::MovieTrackerRedis.new
-      movie_tracker.write_to_db(@movie_title, is_positive)
+      movie_tracker.write_to_db(@movie_title, sentiment)
     end
 
     def start_twitter_stream_listener(movie_title)
