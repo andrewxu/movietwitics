@@ -28,8 +28,8 @@ class TokenProbability
 end
 
 class Sentiment
-  POSITIVE = 1
-  NEGATIVE = -1
-  NEUTRAL  = 0
+  POSITIVE = 'P'
+  NEGATIVE = 'N'
+  NEUTRAL  = 'X'
 end
 
