@@ -1,3 +1,44 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+.movie-item {
+  background-color: $tertriary-background;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  width: 40%;
+
+  .movie-item-table {
+    width: 100%;
+    .movie-thumbnail {
+
+    }
+
+    .movie-title {
+      padding-left: 10px;
+    }
+
+    .score {
+      text-align: center;
+      width:33%;
+    }
+
+    .critic-score {
+
+    }
+
+    .user-score {
+
+    }
+
+    .sentiment-score {
+    
+    }
+
+    .movie-sypnosis {
+      
+    }
+  }
+}

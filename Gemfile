@@ -4,11 +4,14 @@ gem 'rails', '3.2.8'
 
 gem 'redis'
 gem 'badfruit'
+gem 'ruby-tmdb'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'susy'
+  gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

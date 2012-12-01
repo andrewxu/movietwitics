@@ -1,29 +1,27 @@
-<h1>Movie Twitics</h1>
-<table>
-  <tr>
-    <th></th>
-    <th>Movie Name</th>
-    <th>Critic Score</th>
-    <th>User Score</th>
-    <th>What is your feeling baby?</th>
-  </tr>
 <% @box_office_movies.each do |movie| %>
-  <tr>
-    <td>
-      <img src="<%= movie['thumbnail'] %>">
-    </td>
-    <td>
-      <a href="movies/<%= movie['id'] %>"><%= movie['name'] + ' (' + movie['year'].to_s + ')' %></a>
-    </td>
-    <td>
-      <%= movie['critic_score'] %>
-    </td>
-    <td>
-      <%= movie['user_score'] %>
-    </td>
-    <td>
-      Sentinment here.
-    </td>
-  </tr>
+  <div class="movie-item">
+    <table class="movie-item-table">
+      <tr>
+        <td rowspan="2" class="movie-thumbnail">
+          <img src="<%= movie['thumbnail'] %>">
+        </td>
+        <td colspan="3" class="movie-title"> 
+          <a href="movies/<%= movie['id'] %>">
+            <%= movie['name'] + ' (' + movie['year'].to_s + ')' %>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="score critic-score">
+          <%= movie['critic_score'] %>
+        </td>
+        <td class="score user-score">
+          <%= movie['user_score'] %>
+        </td>
+        <td class="score sentiment-score">
+          <%= movie['sentiment'] %>
+        </td>
+      </tr>
+    </table>
+  </div>
 <% end %>
-</table>
