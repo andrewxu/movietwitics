@@ -31,6 +31,7 @@ module Api
         stream.each_item do |item|
           require 'json'
           tweet = JSON.load(item)
+          next if tweet["user"]["lang"] != "en"
           puts "Analyse and write to db: #{tweet["text"]}\n\n"
           analyse_tweet(tweet["text"])
           puts "\n\n\n"
