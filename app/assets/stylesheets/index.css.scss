@@ -5,40 +5,64 @@
 
 .movie-item {
   background-color: $tertriary-background;
-  float: left;
-  margin: 15px;
+  height: 91px;
+  margin-bottom: 15px;
   padding: 10px;
-  width: 40%;
+  position: relative;
+  width: 100%;
 
-  .movie-item-table {
-    width: 100%;
-    .movie-thumbnail {
+  .movie-thumbnail {
+    float: left;
+    height: 91px;
+    margin-right: 10px;
+  }
 
-    }
+  .movie-title {
+    font-size: 1.5em;
+  }
 
-    .movie-title {
-      padding-left: 10px;
-    }
+  .movie-information {
+    float: left;
+  }
 
-    .score {
+  .score-section {
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    & > div {
+      color: white;
+      float: right;
+      margin-left: 10px;
       text-align: center;
-      width:33%;
     }
 
-    .critic-score {
-
+    div.score-value {
+      background-color: green;
     }
 
-    .user-score {
-
+    span.score-type {
+      color: $primary-text;
     }
 
-    .sentiment-score {
-    
+    .critic-score div.score-value {
+      height: 45px;
+      line-height: 45px;
+      width: 45px;
     }
 
-    .movie-sypnosis {
-      
+    .user-score div.score-value {
+      height: 65px;
+      font-size: 1.5em;
+      line-height: 65px;
+      width: 65px;
+    }
+
+    .sentiment-score div.score-value {
+      height: 85px;
+      font-size: 2em;
+      line-height: 85px;
+      width: 85px;
     }
   }
 }

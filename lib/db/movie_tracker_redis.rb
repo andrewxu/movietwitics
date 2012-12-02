@@ -14,7 +14,7 @@ module Db
       negative_reviews = @redis.get("#{movie_title}_N")
 
       if positive_reviews.nil? && negative_reviews.nil?
-        return "Not yet rated"
+        return "-" #not yet rated
       end
 
       positive_reviews.to_i.percent_of(positive_reviews.to_f + negative_reviews.to_f).round(0)
