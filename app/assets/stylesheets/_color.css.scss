@@ -1,14 +1,23 @@
 //color palette http://www.colourlovers.com/palette/953498/Headache
 
-$turning-to-ash: #655643;
-$only-cyan: #80BCA3;
-$indivisible: #F6F7BD;
-$golden-apple: #E6AC27;
-$only-orange: #E6AC27;
+$strong-blue: #264293;
+$pale-blue: #4B6CD0;
+$light-blue: #4473F9;
+$mid-blue: #243463;
+$dark-blue: #1B2749;
 
-$primary-background: $turning-to-ash;
-$secondary-background: $only-cyan;
-$tertriary-background: $indivisible;
+$metal-dark: #1D2338;
+$metal-light: #2A3352;
+$metal-pale: #343F66;
+$grey: #D5DAE9;
 
-$primary-text: $only-orange;
-$secondary-text: $golden-apple;
+$primary-background-light: $mid-blue;
+$primary-background-dark: $dark-blue;
+$header-background: $strong-blue;
+
+$secondary-background-dark: $metal-dark;
+$secondary-background-light: $metal-light;
+$secondary-background-highlight: $metal-pale;
+
+$primary-heading: $light-blue;
+$primary-text: $grey;

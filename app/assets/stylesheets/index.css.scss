@@ -4,7 +4,10 @@
 @import 'base';
 
 .movie-item {
-  background-color: $tertriary-background;
+  @include background-image(linear-gradient($secondary-background-light, $secondary-background-dark));
+  @include border-radius(3px);
+  @include box-shadow(#111 0px 1px 5px);
+  border: 1px solid $secondary-background-highlight;
   float: left;
   margin: 15px;
   padding: 10px;

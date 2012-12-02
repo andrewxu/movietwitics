@@ -1,1 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400);
+
+$header-font-family: 'Oswald', sans-serif;
 $primary-font: Arial;
+
+%heading {
+  font-family: $header-font-family;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+h1 {
+  @extend %heading;
+  font-size: 2em;
+}
+
+h2 {
+  @extend %heading;
+  font-size: 1.7em;
+}
