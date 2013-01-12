@@ -34,7 +34,7 @@ module Api
         'name' => movie.name,
         'year' => movie.year,
         'poster_detailed' => movie.posters.detailed,
-        'release_data' => movie.release_dates['theater'],
+        'release_date' => movie.release_dates['theater'],
         'rating' => movie.mpaa_rating,
         'runtime' => movie.runtime,
         'synopsis' => movie.synopsis,
