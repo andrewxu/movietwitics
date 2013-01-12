@@ -7,10 +7,10 @@ class IndexController < ApplicationController
   end
 
   def index
-    @box_office_movies = @movie_helper.movieList
+    @box_office_movies = @movie_helper.get_movie_list
   end
 
   def movie
-    @movie = @movie_helper.get_movie_by_id params[:id]
+    @movie = Movie.find_by_id params[:id]
   end
 end

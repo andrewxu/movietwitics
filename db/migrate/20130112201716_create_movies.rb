@@ -8,6 +8,9 @@ class CreateMovies < ActiveRecord::Migration
       t.text :synopsis
       t.integer :sentiment
       t.string :poster_url
+      t.string :poster_thumbnail
+      t.integer :critic_score
+      t.integer :user_score
 
       t.timestamps
     end
