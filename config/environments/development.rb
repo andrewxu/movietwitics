@@ -34,4 +34,6 @@ RailsApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.dependency_loading = true if $rails_rake_task
 end

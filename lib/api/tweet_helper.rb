@@ -1,6 +1,6 @@
 
 module Api
-  class TweetApiHelper
+  class TweetHelper
     def insert_tweets(movie_title)
       @movie_title = movie_title
       self.movie_tweets["results"].each do |tweet|
