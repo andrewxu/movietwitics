@@ -1,17 +1,17 @@
 <article>
 	<section role="movie-info">
-		<img src="<%= @movie['poster_detailed'] %>"/>
-		<h1><%= @movie['name'] %> <small>(<%= @movie['year'] %>)</small></h1>
+		<img src="<%= @movie.poster_url %>"/>
+		<h1><%= @movie.title %> <small>(year)</small></h1>
 		<ul id="release-info">
-			<li><strong>Released:</strong> <%= @movie['release_date'] %></li>
-			<li><strong>Rating:</strong> <%= @movie['mpaa_rating'] %></li>
-			<li><strong>Runtime:</strong> <%= @movie['runtime'] %> minutes</li>
+			<li><strong>Released:</strong> <%= @movie.release_date %></li>
+			<li><strong>Rating:</strong> <%= @movie.rating %></li>
+			<li><strong>Runtime:</strong> <%= @movie.runtime %> minutes</li>
 		</ul>
 
 		<h2>Overview</h2>
-		<p><%= @movie['synopsis'] %></p>
+		<p><%= @movie.synopsis %></p>
 
 		<h2>Sentiment</h2>
-		<p><%= @movie['sentiment'] %></p>
+		<p><%= @movie.sentiment %></p>
 	</section>
 </article>

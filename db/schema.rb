@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(:version => 20130112201716) do
     t.text     "synopsis"
     t.integer  "sentiment"
     t.string   "poster_url"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "poster_thumbnail"
+    t.integer  "critic_score"
+    t.integer  "user_score"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

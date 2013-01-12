@@ -7,40 +7,31 @@ module Api
       @movie_db_obj = Db::MovieTrackerRedis.new
     end
 
-    def movieList
+    def get_movie_list
       movies = @bf.lists.in_theaters
-      list = []
+      movie_list = []
+
       movies.each do |m|
 
-        movie_data = {
-          'id' => m.id,
-          'name' => m.name,
-          'year' => m.year,
-          'thumbnail' => m.posters.thumbnail,
-          'critic_score' => m.scores.critics_score,
-          'user_score' => m.scores.audience_score,
-          'sentiment' => @movie_db_obj.movie_rating(m.name) 
-        }
-        list <<  movie_data
+        unless movie = Movie.find_by_title(m.name)
+          movie = Movie.new
+          movie.title = m.name
+          movie.release_date = m.release_dates['theater']
+          movie.rating = m.mpaa_rating
+          movie.runtime = m.runtime
+          movie.synopsis = m.synopsis
+          movie.poster_url = m.posters.detailed
+          movie.poster_thumbnail = m.posters.thumbnail
+          movie.critic_score = m.scores.critics_score
+          movie.user_score = m.scores.audience_score
+
+          movie.save
+        end
+
+        movie_list << movie
       end
 
-      return list
-    end
-
-    def get_movie_by_id identifier
-      movie = @bf.movies.search_by_id identifier
-
-      {
-        'name' => movie.name,
-        'year' => movie.year,
-        'poster_detailed' => movie.posters.detailed,
-        'release_date' => movie.release_dates['theater'],
-        'rating' => movie.mpaa_rating,
-        'runtime' => movie.runtime,
-        'synopsis' => movie.synopsis,
-        'sentiment' => @movie_db_obj.movie_rating(movie.name)
-      }
-
+      return movie_list
     end
   end
 end

@@ -1,11 +1,11 @@
 <% @box_office_movies.each do |movie| %>
   <div class="movie-item">
     <div class="movie-thumbnail">
-      <img src="<%= movie['thumbnail'] %>">
+      <img src="<%= movie.poster_thumbnail %>">
     </div>
     <div class="movie-title"> 
-      <a href="movies/<%= movie['id'] %>">
-        <%= movie['name'] + ' (' + movie['year'].to_s + ')' %>
+      <a href="movies/<%= movie.id %>">
+        <%= movie.title %>
       </a>
     </div>
     <div class="movie-information">
@@ -14,7 +14,7 @@
     <div class="score-section">
       <div class="sentiment-score">
         <div class="score-value">
-          <%= movie['sentiment'] %>
+          <%= movie.sentiment %>
         </div>
         <span class="score-type">
           Sentiment 
@@ -22,7 +22,7 @@
       </div>
       <div class="user-score">
         <div class="score-value">
-          <%= movie['user_score'] %>
+          <%= movie.user_score %>
         </div>
         <span class="score-type">
           User
@@ -30,7 +30,7 @@
       </div>
       <div class="critic-score">
         <div class="score-value">
-          <%= movie['critic_score'] %>
+          <%= movie.critic_score %>
         </div>
         <span class="score-type">
           Critic
