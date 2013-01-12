@@ -48,13 +48,20 @@
       color: $primary-text;
     }
 
+    %score {
+      @include border-radius(3px);
+    }
+
     .critic-score div.score-value {
+      @extend %score;
+      background: red;
       height: 45px;
       line-height: 45px;
       width: 45px;
     }
 
     .user-score div.score-value {
+      @extend %score;
       height: 65px;
       font-size: 1.5em;
       line-height: 65px;
@@ -62,6 +69,7 @@
     }
 
     .sentiment-score div.score-value {
+      @extend %score;
       height: 85px;
       font-size: 2em;
       line-height: 85px;
